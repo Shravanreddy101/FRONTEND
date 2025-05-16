@@ -1,0 +1,51 @@
+<form [formGroup]="searchProductForm" class="search-form" (submit)="submitForm()">
+    <mat-form-field appearance = "outline" class="search-input">
+        <mat-label>Enter KeyWord to Search</mat-label>
+        <input matInput formControlName="title">
+        <button mat-icon-button matSuffix color="primary" disableRipple [disabled]="searchProductForm.invalid">
+            <mat-icon>search</mat-icon>
+        </button>
+    </mat-form-field>
+</form>
+
+
+<div class="product-list">
+    <mat-card class="product-card" *ngFor="let product of products">
+        <div class="product-image">
+            <img [src]="product.processedImg" alt="product-image">
+        </div>
+        <div class="product-details">
+            <h2 class="product-name">{{ product.name }}</h2>
+            <p class="product-description">{{ product.description }}</p>
+            
+            <mat-divider></mat-divider>
+            <div class="product-info">
+                <div class="info-row">
+                    <span class="info-label">Price:</span>
+                    <span class="info-value">${{ product.price }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Category:</span>
+                    <span class="info-value">{{ product.categoryName }}</span>
+                </div>
+            </div>
+
+            <mat-divider></mat-divider>
+
+            <div class="actions">
+                <button mat-raised-button color="accent" class="update-button" (click)="addToCart(product.id)">Add to Cart</button>
+                <button mat-raised-button color="accent" class="faq-button" (click)="toggleFAQ(product.id)">FAQ</button>
+            </div>
+
+            <div *ngIf="FAQProductId == product.id && FAQ" class="faq-card">
+                <div *ngFor="let faq of FAQ">
+                <p><strong>Question : </strong>{{faq.question || "No questions asked"}}</p>
+                <p><strong>Answer : </strong>{{ faq.answer || "No answer available"}}</p>
+
+                
+
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>

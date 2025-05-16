@@ -1,0 +1,43 @@
+<div *ngIf="productList.length > 0; else emptyCart">
+    <div class="cart-container">
+  
+      <div class="cart-item" *ngFor="let product of productList">
+        <div class="product-image">
+          <img [src]="product.processedImg" alt="product-image" />
+        </div>
+  
+        <div class="product-details">
+          <div class="item-name" [ngClass]="{ 'highlight': product.highlighted }">
+            {{ product.name }}
+          </div>
+  
+          <div class="item-meta">
+            <div class="item-quantity">
+              {{ product.quantity }} x
+            </div>
+            <div class="item-price">
+              {{ product.price | currency }}
+            </div>
+          </div>
+        </div>
+        <div class="checkout-bar">
+            <div class="total-price">
+              Amount: {{ totalAmount | currency }}
+            </div>
+            <button mat-raised-button color="primary" class="review-btn" (click)="Review()">Review Product</button>
+          </div>
+      </div>
+  
+     
+      
+  
+    </div>
+  </div>
+  
+  <ng-template #emptyCart>
+    <div class="empty-cart">
+      <mat-icon class="icon">remove_shopping_cart</mat-icon>
+      <span>Nothing to see here</span>
+    </div>
+  </ng-template>
+  

@@ -1,0 +1,32 @@
+<div class="container">
+    <h2 class="page-title">Add FAQ</h2>
+
+    <form [formGroup]="faqForm" (ngSubmit)="postFAQ()" class="form-wrapper">
+
+    <div class="form-group">
+        <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Question</mat-label>
+        <input matInput type="text" formControlName="question" />
+          <mat-error *ngIf="faqForm.get('question')?.invalid && faqForm.get('question')?.touched">
+            This input is required
+        </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Answer</mat-label>
+        <input matInput type="text" formControlName="answer" />
+          <mat-error *ngIf="faqForm.get('answer')?.invalid && faqForm.get('answer')?.touched">
+            This input is required
+        </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="button-container">
+        <button mat-raised-button color="primary" type="submit" [disabled]="faqForm.invalid">
+        Add FAQ
+        </button>
+    </div>
+    </form>
+</div>

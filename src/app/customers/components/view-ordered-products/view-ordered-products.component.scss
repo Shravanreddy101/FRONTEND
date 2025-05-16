@@ -1,0 +1,136 @@
+.cart-container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  
+    .cart-header {
+      display: none; // Hidden since layout is now stacked
+    }
+  
+    .cart-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid #e0e0e0;
+  
+      .product-image img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+  
+      .product-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+  
+        .item-name {
+          font-size: 1.1rem;
+          font-weight: 600;
+          margin-bottom: 0.3rem;
+  
+          &.highlight {
+            color: #1976d2;
+          }
+        }
+  
+        .item-meta {
+          display: flex;
+          gap: 1.5rem;
+          font-size: 0.95rem;
+          color: #444;
+  
+          .item-quantity,
+          .item-price {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+  
+            &::before {
+              font-weight: 500;
+              color: #666;
+            }
+          }
+  
+          .item-quantity::before {
+            content: 'Qty:';
+          }
+  
+          .item-price::before {
+            content: 'Price:';
+          }
+        }
+      }
+    }
+  
+    .total-price-coupon {
+      text-align: right;
+      padding: 1rem 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #00796b;
+    }
+  
+    .button-wrapper {
+      text-align: right;
+      padding: 1rem 0;
+  
+      button {
+        background-color: #1976d2;
+        padding: 0.6rem 1.5rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .checkout-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .total-price {
+    font-size: 1rem;
+    font-weight: 600;
+    color: green;
+  }
+  
+  .review-btn {
+    padding: 0.4rem 1rem;
+    font-size: .9rem;
+    border-radius: 8px;
+    background-color: #1976d2;
+    color: white;
+  
+    &:hover {
+      background-color: #1565c0;
+    }
+  }
+  
+  
+  .empty-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+    color: #888;
+  
+    .icon {
+      font-size: 48px;
+      margin-bottom: 1rem;
+    }
+  
+    span {
+      font-size: 1.2rem;
+    }
+  }
+  

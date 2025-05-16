@@ -1,0 +1,62 @@
+.container {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+  
+    mat-card {
+      width: 100%;
+      max-width: 900px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+  
+      mat-card-content {
+        padding: 1rem;
+  
+        table {
+          width: 100%;
+          border-collapse: collapse;
+  
+          th.mat-header-cell, td.mat-cell {
+            padding: 1rem;
+            text-align: left;
+            font-size: 0.95rem;
+          }
+  
+          th.mat-header-cell {
+            background-color: #f5f5f5;
+            font-weight: 600;
+            color: #333;
+          }
+  
+          td.mat-cell {
+            border-bottom: 1px solid #e0e0e0;
+            color: #444;
+          }
+  
+          .bold-cell {
+            font-weight: 600;
+            color: #00796b;
+          }
+
+          .urgent {
+            font-weight: 600;
+            color:red
+          }
+  
+          tr.mat-row:hover {
+            background-color: #f0f7f7;
+          }
+        }
+      }
+    }
+  }
+  
+  // Make icons clean with no background or border
+  ::ng-deep .mat-icon {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: inherit;
+  }
+  

@@ -1,0 +1,71 @@
+<form [formGroup]="searchProductForm" class="search-form" (submit)="submitForm()">
+    <mat-form-field appearance = "outline" class="search-input">
+        <mat-label>Enter KeyWord to Search</mat-label>
+        <input matInput formControlName="title">
+        <button mat-icon-button matSuffix color="primary" disableRipple [disabled]="searchProductForm.invalid">
+            <mat-icon>search</mat-icon>
+        </button>
+    </mat-form-field>
+</form>
+
+
+<div class="product-list">
+    <mat-card class="product-card" *ngFor="let product of products">
+        <div class="product-details">
+            <div class="product-image" style="text-align: center; margin-bottom: 10px;">
+                <img *ngIf="product.processedImg" [src]="product.processedImg" alt="Product Image" style="max-width: 100%; max-height: 200px; object-fit: cover;" />
+                <div *ngIf="!product.processedImg">No Image</div>
+            </div>
+            <div class="info-row">
+                <label class="upload-btn">
+                    Change Image
+                    <input type="file" accept="image/*" (change)="onImageSelected($event, product)" />
+                </label>
+            </div>
+        
+            <mat-divider></mat-divider>
+
+            <mat-form-field appearance="outline" class="product-name">
+                <mat-label>Product Name</mat-label>
+                <input matInput [(ngModel)]="product.name" placeholder="Name" />
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline" class="product-description">
+                <mat-label>Description</mat-label>
+                <input matInput [(ngModel)]="product.description" placeholder="Description" />
+            </mat-form-field>
+            
+            <mat-divider></mat-divider>
+            <div class="product-info">
+                <div class="info-row">
+                    <span class="info-label">Price:</span>
+                    <span class="info-value1 dollar-input">
+                    <span class="dollar-symbol">$</span>
+                    <input type="number" [(ngModel)]="product.price" placeholder="Price"/>
+                    </span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Category:</span>
+                    <span class="info-value">
+                        <mat-form-field appearance="outline" class="category-select full-width">
+                            <mat-select *ngIf="listOfCategories.length" [(ngModel)]="product.categoryId">
+                              <mat-option *ngFor="let category of listOfCategories" [value]="category.id">
+                                {{ category.name }}
+                            </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </span>
+                </div>
+
+            <mat-divider></mat-divider>
+
+            <div class="actions">
+                <button mat-raised-button color="primary" class="update-button"
+                    [routerLink]="['/admin/faq', product.id]">FAQ</button>
+
+
+                <button mat-raised-button color="warn" class="delete-button" (click)="deleteProduct(product.id)">Delete</button>
+                <button mat-raised-button color="primary" class="update-button1" (click)="saveProduct(product)">Update</button>
+            </div>
+        </div>
+</div>
