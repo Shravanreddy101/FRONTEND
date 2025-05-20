@@ -95,4 +95,39 @@ export class CustomerService {
     return this.http.get(BASIC_URL + `api/customer/ordered-products/${orderId}`, {headers: this.createAuthorizationHeader()});
   }
 
+  reviewProduct(reviewDTO: any): Observable<any> {
+    return this.http.post(BASIC_URL + `api/customer/review`,reviewDTO, {headers: this.createAuthorizationHeader()});
+  }
+
+  getReviews(productId: any): Observable<any> {
+    return this.http.get(BASIC_URL + `api/customer/reviews/${productId}`, {headers: this.createAuthorizationHeader()});
+  }
+  
+
+  addProductToWishList(productId:any): Observable<any> {
+    const body = {
+      productId: productId,
+      userId: UserStorageService.getUserId()
+    }
+    return this.http.post(BASIC_URL + "api/customer/addToWishList", body, {headers: this.createAuthorizationHeader()});
+  }
+
+  getWishList(): Observable<any> {
+    const userId = UserStorageService.getUserId();
+    return this.http.get(BASIC_URL + `api/customer/wishlist/${userId}`, {headers: this.createAuthorizationHeader()});
+  }
+
+  removeFromWishlist(id: any): Observable<any> {
+    return this.http.delete(BASIC_URL + `api/customer/removeFromWishlist/${id}`, {headers: this.createAuthorizationHeader()});
+  }
+
+  removeByProductId(productId:any): Observable<any> {
+    const body = {
+      productId: productId,
+      userId: UserStorageService.getUserId()
+    }
+    return this.http.delete(BASIC_URL + "api/customer/removeByProductId",{body: body, headers: this.createAuthorizationHeader()});
+  }
+
+  
 }

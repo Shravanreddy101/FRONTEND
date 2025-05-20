@@ -87,6 +87,10 @@ export class AdminService {
     return this.http.get(BASIC_URL + "api/admin/placedOrders", {headers: this.createAuthorizationHeader()});
   }
 
+  getAnalytics(): Observable<any> {
+    return this.http.get(BASIC_URL + "api/admin/order/analytics", {headers: this.createAuthorizationHeader()});
+  }
+
 
   getOrdersByUsername(name: string): Observable<any> {
     return this.http.get(BASIC_URL + `api/admin/orders/${name}`, {headers: this.createAuthorizationHeader()});
@@ -123,6 +127,8 @@ export class AdminService {
   postFAQ(productId:any, faqDTO:any): Observable<any> {
     return this.http.post(BASIC_URL + `api/admin/postFAQ/${productId}`, faqDTO, {headers: this.createAuthorizationHeader()});
   }
+
+  
 
 }
 

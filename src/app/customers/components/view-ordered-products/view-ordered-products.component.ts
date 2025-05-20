@@ -19,9 +19,7 @@ import { CustomerService } from '../../services/customer.service';
   styleUrl: './view-ordered-products.component.scss'
 })
 export class ViewOrderedProductsComponent {
-Review() {
-throw new Error('Method not implemented.');
-}
+
 
   orderId: any;
   productList = [];
@@ -45,4 +43,8 @@ throw new Error('Method not implemented.');
       this.totalAmount = res.orderAmount;
     });
   }
+
+  Review(id: number) {
+  this.router.navigateByUrl(`/customers/review/${id}`);
+}
 }

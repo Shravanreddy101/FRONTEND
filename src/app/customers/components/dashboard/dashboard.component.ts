@@ -11,6 +11,7 @@ import { MatDivider } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { UserStorageService } from '../../../services/storage/user-storage.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,6 +25,9 @@ export class DashboardComponent {
   products: any[] = [];
   FAQ: any[] = [];
   FAQProductId: number | null = null;
+
+  Reviews: any[] = [];
+  ReviewProductId: number | null = null;
   searchProductForm! : FormGroup;
 
   constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private customerService: CustomerService, private router: Router){}
@@ -84,9 +88,55 @@ export class DashboardComponent {
     else{
       this.customerService.getFAQ(id).subscribe(res => {
         console.log('Received FAQ:', res);
+        this.Reviews = [];
+        this.ReviewProductId = null;
         this.FAQ = res;
         this.FAQProductId = id;
+
       })
     }
   }
+
+
+toggleReviews(id: any){
+  if(this.ReviewProductId == id){
+    this.ReviewProductId = null;
+    this.Reviews = [];
+  }
+  else{
+    this.customerService.getReviews(id).subscribe(res => {
+      console.log('Recieved review', res)
+      this.FAQ = [];
+      this.FAQProductId = null;
+      this.Reviews = res;
+      this.ReviewProductId = id;
+    })
+  }
+}
+
+addProductToWishList(id:any){
+  this.customerService.addProductToWishList(id).subscribe(res => {
+    this.snackBar.open('Product added to WishList!', 'Close', {duration: 5000})
+  })
+}
+
+remove(id:any) {
+    this.customerService.removeByProductId(id).subscribe(res => {
+      this.snackBar.open('Product removed from wishlist!', 'Close', {duration: 5000})
+    });
+  }
+
+toggleWishList(product: any) {
+  product.isFavorited = !product.isFavorited;
+  if(product.isFavorited){
+    this.addProductToWishList(product.id);
+  }
+  else{
+    this.remove(product.id);
+  }
+  
+}
+
+
+
 }

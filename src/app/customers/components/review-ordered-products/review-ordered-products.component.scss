@@ -1,0 +1,114 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;  /* ← Add this line */
+}
+
+
+
+.review-card {
+  width: 500px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.rating-stars {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+mat-icon {
+  font-size: 30px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+mat-icon.filled {
+  color: #ffb400;
+}
+
+.small-textbox {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.upload-container {
+  margin-bottom: 15px;
+}
+
+.preview-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.preview-image {
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.button-row .mat-button {
+  width: 48%;
+}
+.button-row .mat-button:first-child {
+  background-color: #f44336;
+  color: white;
+}
+.button-row .mat-button:last-child {
+  background-color: #4caf50;
+  color: white;
+}
+.review-card .mat-form-field {
+  width: 100%;
+}
+.review-card .mat-form-field textarea {
+  min-height: 70px;
+}
+.review-card .mat-form-field .mat-form-field-flex {
+  min-height: 70px;
+}
+.review-card .mat-form-field .mat-form-field-label {
+  font-size: 14px;
+}
+.review-card .mat-form-field .mat-form-field-label:not(.mat-form-field-empty) {
+  transform: translateY(-20px) scale(0.75);
+}
+.review-card .mat-form-field .mat-form-field-label:not(.mat-form-field-empty):not(.mat-form-field-required) {
+  color: #999;
+}
+.review-card .mat-form-field .mat-form-field-label:not(.mat-form-field-empty):not(.mat-form-field-required):hover {
+  color: #999;
+}
+.review-card .mat-form-field .mat-form-field-label:not(.mat-form-field-empty):not(.mat-form-field-required):focus {
+  color: #999;
+}
+.review-card .mat-form-field .mat-form-field-label:not(.mat-form-field-empty):not(.mat-form-field-required):focus:not(.mat-form-field-invalid) {
+  color: #999;
+} 

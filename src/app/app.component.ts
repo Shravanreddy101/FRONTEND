@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
 
   isCustomerLoggedIn: boolean = UserStorageService.isCustomerLoggedIn();
   isAdminLoggedIn: boolean = UserStorageService.isAdminLoggedIn();
+userId: any|string;
 
   constructor(private router: Router){}
 

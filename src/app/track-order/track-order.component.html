@@ -1,0 +1,48 @@
+<form [formGroup]="searchOrderForm" class="search-form" (submit)="getOrderByTrackingId()">
+    <mat-form-field appearance = "outline" class="search-input">
+        <mat-label>Enter Tracking ID to Search</mat-label>
+        <input matInput formControlName="trackingId">
+        <button mat-icon-button matSuffix color="primary" disableRipple [disabled]="searchOrderForm.invalid">
+            <mat-icon>search</mat-icon>
+        </button>
+    </mat-form-field>
+</form>
+
+    <div class="container" *ngIf="orderDTO">
+    <mat-card class="order-card">
+        <mat-card-title>Order Details</mat-card-title>
+        <mat-card-content>
+        <div class="order-details-grid">
+            <div class="detail-row">
+            <span class="label">Order ID:</span>
+            <span class="value">{{ orderDTO.id }}</span>
+            </div>
+            <div class="detail-row">
+            <span class="label">Description:</span>
+            <span class="value">{{ orderDTO.orderDescription }}</span>
+            </div>
+            <div class="detail-row">
+            <span class="label">Date:</span>
+            <span class="value">{{ orderDTO.date | date:'short' }}</span>
+            </div>
+            <div class="detail-row">
+            <span class="label">Amount Paid:</span>
+            <span class="value">${{ orderDTO.amount }}</span>
+            </div>
+            <div class="detail-row">
+            <span class="label">Order Status:</span>
+            <span class="value urgent">{{ orderDTO.orderStatus }}</span>
+            </div>
+            <div class="detail-row">
+            <span class="label">Customer Name:</span>
+            <span class="value">{{ orderDTO.userName }}</span>
+            </div>
+            <div class="detail-row">
+            <span class="label">Address:</span>
+            <span class="value">{{ orderDTO.address }}</span>
+            </div>
+        </div>
+        </mat-card-content>
+    </mat-card>
+    </div>
+

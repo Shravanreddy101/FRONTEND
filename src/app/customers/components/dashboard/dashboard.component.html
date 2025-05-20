@@ -15,8 +15,19 @@
             <img [src]="product.processedImg" alt="product-image">
         </div>
         <div class="product-details">
+            
             <h2 class="product-name">{{ product.name }}</h2>
             <p class="product-description">{{ product.description }}</p>
+            <button
+                mat-icon-button
+                (click)="toggleWishList(product)"
+                [class.active]="product.isFavorited"
+                class="favorite-button">
+                <mat-icon>
+                    {{ product.isFavorited ? 'star' : 'star_border' }}
+                </mat-icon>
+            </button>
+            
             
             <mat-divider></mat-divider>
             <div class="product-info">
@@ -33,19 +44,25 @@
             <mat-divider></mat-divider>
 
             <div class="actions">
-                <button mat-raised-button color="accent" class="update-button" (click)="addToCart(product.id)">Add to Cart</button>
                 <button mat-raised-button color="accent" class="faq-button" (click)="toggleFAQ(product.id)">FAQ</button>
+                <button mat-raised-button color="accent" class="review-button" (click)="toggleReviews(product.id)">Reviews</button>
+                <button mat-raised-button color="accent" class="update-button" (click)="addToCart(product.id)">Add to Cart</button>
             </div>
 
-            <div *ngIf="FAQProductId == product.id && FAQ" class="faq-card">
-                <div *ngFor="let faq of FAQ">
-                <p><strong>Question : </strong>{{faq.question || "No questions asked"}}</p>
-                <p><strong>Answer : </strong>{{ faq.answer || "No answer available"}}</p>
-
-                
-
+            <div *ngIf="FAQProductId == product.id && FAQ">
+                <div *ngFor="let faq of FAQ" class="faq-card">
+                    <p><strong>Question : </strong>{{faq.question || "No questions asked"}}</p>
+                    <p><strong>Answer : </strong>{{ faq.answer || "No answer available"}}</p>
                 </div>
             </div>
+
+            <div *ngIf="ReviewProductId == product.id && Reviews">
+                <div *ngFor="let review of Reviews" class="faq-card1">
+                    <p><strong>Rating : </strong>{{review.rating + '/5'|| "No rating given"}}</p>
+                    <p><strong>Description : </strong>{{ review.description || "No description written"}}</p>
+                </div>
+            </div>
+
         </div>
     </mat-card>
 </div>

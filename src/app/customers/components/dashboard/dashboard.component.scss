@@ -1,178 +1,241 @@
 .search-form {
-    display: flex;
-    justify-content: center;
-    margin-top: 1.5rem; 
-    margin-bottom: 1rem; 
-  
-    .search-input {
-      width: 300px;
-      background: white;
-      border-radius: 8px;
-  
-      mat-form-field {
-        width: 100%;
-      }
-  
-      input {
-        padding: 0.5rem;
-        font-size: 1rem;
-      }
-  
-      button[mat-icon-button] {
-        background: none !important;
-        box-shadow: none !important;
-        border: none;
-        margin-right: 0.5rem;
-      }
-  
-      button[mat-icon-button]::after {
-        display: none;
-      }
-  
-      mat-icon {
-        color: #1976d2;
-        background: none;
-        font-size: 24px;
-      }
-  
-      button[mat-icon-button]:hover mat-icon {
-        color: #1565c0;
-      }
-    }
-  }
-  
-  
-  .product-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
-    background-color: #f9f9f9;
-  }
-  
-  .product-card {
-    display: flex;
-    flex-direction: column;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-    background-color: white;
-  
-    &:hover {
-      transform: translateY(-5px);
-    }
-  }
-  
-  .product-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-  
-    img {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+
+  .search-input {
+    width: 300px;
+    background: white;
+    border-radius: 8px;
+
+    mat-form-field {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+    }
+
+    input {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    button[mat-icon-button] {
+      background: none !important;
+      box-shadow: none !important;
+      border: none;
+      margin-right: 0.5rem;
+    }
+
+    button[mat-icon-button]::after {
+      display: none;
+    }
+
+    mat-icon {
+      color: #1976d2;
+      background: none;
+      font-size: 24px;
+    }
+
+    button[mat-icon-button]:hover mat-icon {
+      color: #1565c0;
     }
   }
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: #f9f9f9;
+
   
-  .product-details {
-    padding: 1rem;
-  
-    .product-name {
-      margin: 0;
-      font-size: 1.25rem;
-      color: #333;
-    }
-  
-    .product-description {
-      color: #666;
-      font-size: 0.95rem;
-      margin: 0.5rem 0 1rem 0;
-    }
-  
-    .product-info {
-      margin-top: 1rem;
-  
-      .info-row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 0.5rem;
-  
-        .info-label {
-          font-weight: 600;
-          color: #555;
-        }
-  
-        .info-value {
-          font-weight: 500;
-          color: #2a9d8f;
-        }
-      }
-    }
-  
-    .actions {
+  align-items: start; 
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  background-color: white;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+}
+
+.product-details {
+  padding: 1rem;
+
+  .product-name {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+
+  .product-description {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 0.5rem 0 1rem 0;
+  }
+
+  .product-info {
+    margin-top: 1rem;
+
+    .info-row {
       display: flex;
       justify-content: space-between;
-      margin-top: 1rem;
+      margin-bottom: 0.5rem;
 
-      .faq-button {
-        flex: 1;
-        margin: 0 0.25rem;
+      .info-label {
         font-weight: 600;
-        letter-spacing: 0.5px;
-        background-color: #ffa000; // Amber accent color
-        color: white;
-      
-        &:hover {
-          background-color: #fb8c00;
-        }
+        color: #555;
       }
 
-      .faq-card {
-        margin-top: 1rem;
-        padding: 2rem;
-        background-color: #fff3e0; // Light amber
-        border-left: 4px solid #ffa000;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        font-size: 0.95rem;
-        color: #444;
-      
-        p {
-          margin: 0.5rem 0;
-      
-          strong {
-            color: #bf360c;
-          }
-        }
-      }
-  
-      .update-button,
-      .delete-button {
-        flex: 1;
-        margin: 0 0.25rem;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-      }
-  
-      .update-button {
-        background-color: #1976d2; // Primary color
-        color: white;
-  
-        &:hover {
-          background-color: #1565c0;
-        }
-      }
-  
-      .delete-button {
-        background-color: #d32f2f; // Warn color
-        color: white;
-  
-        &:hover {
-          background-color: #c62828;
-        }
+      .info-value {
+        font-weight: 500;
+        color: #2a9d8f;
       }
     }
   }
-  
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    button {
+      flex: 1 1 auto;
+      min-width: 100px;
+      white-space: nowrap;
+    }
+
+    // Make "Add to Cart" most prominent
+    .update-button {
+      flex: 2 1 auto; // More space
+      font-size: 1.1rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 700;
+      background-color: #1976d2;
+      color: white;
+
+      &:hover {
+        background-color: #1565c0;
+      }
+    }
+
+    .faq-button,
+    .review-button {
+      flex: 1 1 48%;
+      font-size: 0.95rem;
+      padding: 0.6rem 0.5rem;
+      font-weight: 600;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .faq-button {
+      background-color: #ffa000;
+      color: white;
+
+      &:hover {
+        background-color: #fb8c00;
+      }
+    }
+
+    .review-button {
+      background-color: #43a047;
+      color: white;
+
+      &:hover {
+        background-color: #388e3c;
+      }
+    }
+  }
+
+  .faq-card {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1rem;
+    background-color: #fff3e0;
+    border-left: 4px solid #ffa000;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-size: 0.95rem;
+    color: #444;
+
+    p {
+      margin: 0.5rem 0;
+
+      strong {
+        color: #bf360c;
+      }
+    }
+  }
+
+  .faq-card1 {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1rem;
+    background-color: #e6f4ea;
+    border-left: 4px solid #4caf50;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-size: 0.95rem;
+    color: #444;
+
+    p {
+      margin: 0.5rem 0;
+
+      strong {
+        color: #2e7d32;
+      }
+    }
+  }
+}
+
+.favorite-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  color: transparent; /* Make icon color transparent initially */
+  transition: color 0.3s ease, transform 0.2s ease;
+
+  mat-icon {
+    font-size: 24px;
+    color: black; /* outline star color */
+    transition: color 0.3s ease;
+  }
+
+  &:hover mat-icon {
+    color: gold; /* fill star gold on hover */
+  }
+
+  &.active mat-icon {
+    color: gold; /* filled star gold when active */
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+

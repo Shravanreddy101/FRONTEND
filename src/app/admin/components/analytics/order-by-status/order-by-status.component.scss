@@ -1,0 +1,77 @@
+.order-status-container {
+  display: flex;
+  justify-content: space-between; /* space cards evenly */
+  gap: 1.5rem;                   /* gap between cards */
+  flex-wrap: wrap;               /* wrap on small screens */
+  max-width: 1200px;
+  margin: 2rem auto 20px;        /* shorthand for margin top & bottom */
+  padding: 0 1rem;               /* some side padding */
+  
+}
+
+.order-status-card {
+  flex: 1 1 30%;                 /* allow flexible width, min 30% */
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-width: 250px;              /* don't shrink too much */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  
+  /* Remove margin-right because gap handles spacing */
+}
+
+.order-status-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.18);
+}
+
+mat-card-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+mat-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-left: 0.75rem;   /* slightly more space from avatar */
+  flex-grow: 1;
+}
+
+.status-avatar {
+  background-color: #5a9bd4;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+mat-card-content {
+  text-align: center;
+  padding: 1.25rem 1rem 1.5rem;
+}
+
+.status-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+/* Responsive tweak for smaller screens */
+@media (max-width: 650px) {
+  .order-status-card {
+    flex: 1 1 100%;  /* full width cards on small devices */
+    min-width: auto;
+  }
+}
+

@@ -1,0 +1,48 @@
+<div class="container">
+  <mat-card class="review-card">
+    <mat-card-title class="title">Review Product</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="reviewForm" (ngSubmit)="submitForm()">
+        
+        <!-- Star Rating -->
+        <div class="rating-stars">
+          <span *ngFor="let star of [1, 2, 3, 4, 5]" (click)="reviewForm.get('rating')?.setValue(star)">
+            <mat-icon [ngClass]="{'filled': star <= reviewForm.get('rating')?.value}">star</mat-icon>
+          </span>
+        </div>
+
+        <!-- Review Input -->
+        <mat-form-field appearance="outline" class="small-textbox">
+          <mat-label>Review Description</mat-label>
+          <textarea
+            matInput
+            formControlName="description"
+            placeholder="Write your thoughts..."
+            maxlength="1000"
+            rows="3"
+          ></textarea>
+        </mat-form-field>
+
+        <!-- Image Upload -->
+        <div class="upload-container">
+          <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+        </div>
+
+        <!-- Image Preview -->
+        <div *ngIf="imagePreview" class="preview-container">
+          <img [src]="imagePreview" alt="Preview" class="preview-image" />
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit">
+            Submit Review
+          </button>
+          <button mat-stroked-button color="warn" type="button" (click)="navigateToOrders()">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

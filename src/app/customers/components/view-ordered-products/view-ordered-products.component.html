@@ -15,22 +15,20 @@
             <div class="item-quantity">
               {{ product.quantity }} x
             </div>
+
             <div class="item-price">
               {{ product.price | currency }}
             </div>
+
           </div>
         </div>
         <div class="checkout-bar">
             <div class="total-price">
               Amount: {{ totalAmount | currency }}
             </div>
-            <button mat-raised-button color="primary" class="review-btn" (click)="Review()">Review Product</button>
+            <button mat-raised-button color="primary" class="review-btn" (click)="Review(product.id)">Review Product</button>
           </div>
       </div>
-  
-     
-      
-  
     </div>
   </div>
   

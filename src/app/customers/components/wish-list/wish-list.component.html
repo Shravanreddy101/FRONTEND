@@ -1,0 +1,16 @@
+<div class="wishlist-container">
+  <mat-card *ngFor="let item of wishList" class="wishlist-card">
+    <mat-card-title>{{ item.productName }}</mat-card-title>
+    <mat-card-subtitle>${{ item.price }}</mat-card-subtitle>
+
+    <div class="image-wrapper">
+      <img *ngIf="item.productImgBase64" [src]="item.productImgBase64" alt="{{ item.productName }}" />
+    </div>
+
+    <mat-divider></mat-divider>
+    
+    <button mat-raised-button (click)="remove(item.id)" class="remove-button">
+      Remove
+    </button>
+  </mat-card>
+</div>
